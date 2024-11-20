@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.formulario-container {
+    display: flex;
+    justify-content: space-between; /* Esto distribuye el espacio entre los formularios */
+    gap: 20px; /* Espacio entre los formularios */
+}
+
+.formulario {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 48%; /* Ajuste de tamaño para que los formularios no se expandan demasiado */
+    box-sizing: border-box; /* Asegura que el padding no expanda el tamaño del formulario */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    width: auto; /* Esto asegura que los campos no se expandan a todo el ancho */
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
