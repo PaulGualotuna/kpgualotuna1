@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Contacto</title>
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <script>
+    // Función para validar los campos del formulario
+    function validar() {
+      // Validación del correo electrónico
+      var email = document.getElementById('email').value;  // Obtener valor del correo
+      var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;  // Expresión regular para correo
+
+      if (!emailRegex.test(email)) {  // Si el correo no cumple la expresión regular
+        alert("Por favor, ingrese un correo electrónico válido.");
+        return false;  // Detener el envío del formulario
+      }
+
+      // Validación del teléfono
+      var telefono = document.getElementById('telefono').value;  // Obtener valor del teléfono
+      if (telefono.length !== 10 || isNaN(telefono)) {  // Verificar que tenga 10 dígitos y sea solo números
+        alert("Por favor, ingrese un número de teléfono válido (10 dígitos).");
+        return false;  // Detener el envío del formulario
+      }
+
+      // Si las validaciones son correctas, retornar true para enviar el formulario
+      return true;
+    }
+
+    // Función para deshabilitar el botón y cambiar el texto a "Enviando datos..."
+    function deshabilitarBoton() {
+      var boton = document.getElementById('enviarBoton');  // Obtener el botón
+      boton.disabled = true;  // Deshabilitar el botón
+      boton.value = 'Enviando datos...';  // Cambiar el texto del botón
+    }
+
+    // Función para enviar el formulario después de la validación
+    function enviarFormulario() {
+      if (validar()) {  // Solo si las validaciones pasan
+        deshabilitarBoton();  // Deshabilitar el botón y cambiar texto
+        
+        // Enviar el formulario con un pequeño retraso para permitir que el texto cambie
+        setTimeout(function() {
+          document.FormContacto.submit();  // Enviar el formulario
+        }, 1000);  // Espera de 1 segundo (1000 ms) para que el texto "Enviando datos..." se vea
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- Formulario de Contacto -->
+  <section class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="jumbotron">
+          <h1 class="text-center">Formulario de Contacto</h1>
+          <hr>
+
+          <!-- Formulario con name="FormContacto" y onsubmit para llamar a la función validar() -->
+          <form name="FormContacto" class="form-horizontal form-container" onsubmit="return false;">
+            
+            <!-- Correo Electrónico -->
+            <div class="form-group">
+              <label for="email">Correo Electrónico</label>
+              <input type="email" class="form-control" name="email" id="email" placeholder="&#9993; usuario@mail.com" required>
+            </div>
+
+            <!-- Fecha de Nacimiento -->
+            <div class="form-group">
+              <label for="fechaNacimiento">Fecha de Nacimiento</label>
+              <input type="date" class="form-control" name="fechaNacimiento" id="fechaNacimiento" required>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" class="form-control" name="telefono" id="telefono" placeholder="&#128222; Teléfono" required>
+            </div>
+
+            <!-- Botón de Enviar (tipo input para usar con onclick) -->
+            <div class="form-group">
+              <input type="button" id="enviarBoton" class="btn btn-warning btn-block" value="Enviar" onclick="enviarFormulario()">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
+

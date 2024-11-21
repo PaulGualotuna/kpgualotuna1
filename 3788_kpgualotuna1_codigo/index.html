@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Mi ESPE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo común reutilizable */
+        .styled-section {
+            padding: 20px;
+            border: 5px solid rgba(121, 121, 121, 1);
+            border-radius: 10px;
+            margin-bottom: 20px; /* Espaciado entre secciones */
+            
+        }
+
+        aside .btn {
+            border: 5px solid rgba(121, 121, 121, 1); /* Bordes gruesos */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 5px 10px; /* Espacio interno para mantener el tamaño */
+            font-size: 14px; /* Texto pequeño */
+            max-width: 150px; /* Controla el largo máximo del botón */
+            width: 100%; /* Se ajusta automáticamente al tamaño disponible */
+        }
+
+        header {
+            background-color: rgba(0, 255, 255, 1);
+            text-align: center;
+            font-size: 35px;
+            color: white;
+        }
+
+        nav {
+            background-color: rgb(249, 249, 4); /* Color diferente */
+        }
+
+        aside {
+            background-color: rgba(255, 255, 255, 1); /* Color diferente */
+        }
+
+        .main-info {
+            background-color: rgb(22, 255, 1); /* Color diferente */
+            text-align: center;
+        }
+
+        /* Color blanco para el título */
+        .main-info h3 {
+             color: white; /* Texto en blanco */
+        }
+
+        /* Color negro para los párrafos */
+        .main-info p {
+             color: black; /* Texto en negro */
+        }
+
+        iframe {
+            background-color: rgb(0, 0, 0); /* Color diferente */
+            border: 0.5px solid rgba(255, 255, 255, 0.855)  !important; /* Borde blanco delgado */
+            border-radius: 0px;
+            padding: 0px;
+            color: black;
+        }
+
+        footer {
+            background-color: rgba(249, 249, 4); /* Color diferente */
+            text-align: center;
+            color: black;
+        }
+
+        /* Asegurarse de que las secciones estén en una fila y no se bajen */
+        .main-layout {
+            display: flex;
+            justify-content: space-between; /* Para dejar espacio entre las secciones */
+            gap: 40px; /* Espaciado entre las secciones */
+        }
+
+        .main-layout .col-2, .main-layout .col-6, .main-layout .col-4 {
+            flex: 1; /* Para que ocupen el mismo tamaño y estén alineadas en una fila */
+        }
+
+        /* Asegurarse que las columnas tengan el tamaño adecuado */
+        .col-2 {
+            flex-basis: 10%; /* Ocupa el 20% del espacio */
+        }
+
+        .col-6 {
+            flex-basis: 80%; /* Ocupa el 50% del espacio */
+        }
+
+        .col-4 {
+            flex-basis: 10%; /* Ocupa el 30% del espacio */
+        }
+
+        /* Asegurarse de que no se caigan las secciones en pantallas pequeñas */
+        @media (max-width: 768px) {
+            .main-layout {
+                flex-direction: column; /* En pantallas más pequeñas, apilar las secciones */
+            }
+        }
+
+        /* Fondo negro para la sección del video */
+        section.col-4.styled-section {
+            background-color: black; /* Fondo negro */
+        }
+    </style>
+    <!-- Enlace a Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<header class="styled-section">
+    <center>
+        <img src="./img/logo_ESPE.png" height="170" width="400" alt="Logo ESPE">
+    </center>
+</header>
+
+<!-- Menú de Navegación -->
+<nav class="styled-section">
+    <div class="row text-center">
+        <div class="col">
+            <a href="formularioRegistro.html" class="text-dark fw-bold">Formulario Registro</a>
+        </div>
+        <div class="col">
+            <a href="formularioProducto.html" class="text-dark fw-bold">Formulario Producto</a>
+        </div>
+        <div class="col">
+            <a href="#" class="text-dark fw-bold">Matrículas</a>
+        </div>
+    </div>
+</nav>
+
+
+<main class="container">
+    <div class="row main-layout">
+        <!-- Botones Laterales -->
+        <aside class="col-2 styled-section">
+            <!-- Botón de login en index.html -->
+            <button id="btn-login" class="btn btn-outline-primary w-100 mb-2">
+                <a href="#" class="text-decoration-none text-primary">LOGIN</a>
+            </button>
+            
+
+            <br> <br>
+            <button class="btn btn-outline-primary w-100">MATRÍCULA</button>
+        </aside>
+
+        <!-- Información Principal -->
+        <section class="col-6 main-info styled-section">
+            <h3>Aplicación de Tecnologías WEB</h3>
+            <p>Estudiante: ____________________</p>
+            <p>NRC: ____________________</p>
+            <p>Fecha: 01/06/2021</p>
+        </section>
+
+        <!-- Video -->
+        <section class="col-4 styled-section">
+            <iframe class="w-100" height="200" src="https://www.youtube.com/embed/VIDEO_ID"
+                title="Video ejemplo" allowfullscreen>
+            </iframe>
+        </section>
+    </div>
+</main>
+
+<!-- Contenedor donde se cargará el formulario de Login -->
+<div id="dynamic-content"></div>
+
+
+<footer class="styled-section"> 
+    <p><a href="formularioContacto.html#FormContacto" target="_blank" class="text-dark">Contacto PARTE III</a></p>
+</footer>
+
+
+        <script src="js/login.js"></script>
+        
+</body>
+</html>
