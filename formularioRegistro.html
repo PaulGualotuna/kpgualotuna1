@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .form-container {
+            display: flex;
+            gap: 20px; /* Espacio entre los formularios */
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <!-- Formulario de Envío -->
+        <form id="formEnvio">
+            <fieldset>
+                <legend>DIRECCIÓN DE ENVÍO</legend>
+                <label for="callePrincipal">Calle Principal:</label>
+                <input type="text" id="callePrincipal" name="callePrincipal"><br><br>
+
+                <label for="transversal">Transversal:</label>
+                <input type="text" id="transversal" name="transversal"><br><br>
+
+                <input type="checkbox" id="entregaPropietario" name="entregaPropietario"> Entrega al propietario.<br>
+                <input type="checkbox" id="entregaTercero" name="entregaTercero"> Entrega a un tercero.<br><br>
+
+                <label for="cantones">Cantones:</label>
+                <select id="cantones" name="cantones">
+                    <option value="Quito">Quito</option>
+                    <option value="Guayaquil">Guayaquil</option>
+                    <option value="Cuenca">Cuenca</option>
+                </select><br><br>
+
+                <button type="button" id="enviarDatos" disabled>ENVIAR DATOS</button>
+            </fieldset>
+        </form>
+
+        <!-- Formulario Confidencial -->
+        <form id="formConfidencial" class="hidden">
+            <fieldset>
+                <legend>INFORMACIÓN CONFIDENCIAL</legend>
+                <label for="codigoPostal">Código Postal:</label>
+                <input type="text" id="codigoPostal" name="codigoPostal"><br><br>
+
+                <label for="referenciaDireccion">Referencia de la Dirección:</label>
+                <textarea id="referenciaDireccion" name="referenciaDireccion"></textarea><br><br>
+
+                <button type="submit">Guardar</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <script>
+        const entregaPropietarioCheckbox = document.getElementById('entregaPropietario');
+        const entregaTerceroCheckbox = document.getElementById('entregaTercero');
+        const enviarDatosButton = document.getElementById('enviarDatos');
+        const formConfidencial = document.getElementById('formConfidencial');
+
+        // Habilitar/deshabilitar botón "ENVIAR DATOS"
+        entregaPropietarioCheckbox.addEventListener('change', function() {
+            enviarDatosButton.disabled = !this.checked;
+        });
+
+        // Mostrar/ocultar formulario "INFORMACIÓN CONFIDENCIAL"
+        entregaTerceroCheckbox.addEventListener('change', function() {
+            formConfidencial.classList.toggle('hidden', !this.checked);
+        });
+    </script>
+</body>
+</html>
